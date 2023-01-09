@@ -6,14 +6,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.doodle</groupId>
-    <artifactId>doodle-idle-bom</artifactId>
+    <artifactId>doodle-idle</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <relativePath>doodle-idle-bom/pom.xml</relativePath>
+    <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>doodle-idle</artifactId>
+  <artifactId>doodle-idle-game</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>doodle-idle-bom</module>
-    <module>doodle-idle-game</module>
+    <module>doodle-idle-game-server</module>
   </modules>
 </project>
