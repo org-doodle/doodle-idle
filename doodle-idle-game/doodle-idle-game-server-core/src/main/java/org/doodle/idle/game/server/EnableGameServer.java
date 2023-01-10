@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.single;
+package org.doodle.idle.game.server;
 
-import org.doodle.idle.game.server.EnableGameServer;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.lang.annotation.*;
+import org.doodle.idle.game.server.config.GameServerMarkerConfiguration;
+import org.springframework.context.annotation.Import;
 
-@EnableGameServer
-@SpringBootApplication
-public class GameServerApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(GameServerApplication.class, args);
-  }
-}
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Import(GameServerMarkerConfiguration.class)
+public @interface EnableGameServer {}
