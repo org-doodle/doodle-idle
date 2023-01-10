@@ -14,5 +14,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>doodle-idle-zone-server</module>
+    <module>doodle-idle-zone-server-core</module>
+    <module>doodle-starter-idle-zone-server</module>
   </modules>
 </project>

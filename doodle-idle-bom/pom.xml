@@ -41,6 +41,16 @@
         <artifactId>doodle-starter-idle-game-server</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.doodle</groupId>
+        <artifactId>doodle-idle-zone-server-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.doodle</groupId>
+        <artifactId>doodle-starter-idle-zone-server</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>

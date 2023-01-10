@@ -13,16 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.zone.server.single;
+package org.doodle.idle.zone.server.config;
 
-import org.doodle.idle.zone.server.EnableZoneServer;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.context.annotation.Bean;
 
-@EnableZoneServer
-@SpringBootApplication
-public class ZoneServerApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(ZoneServerApplication.class, args);
+@AutoConfiguration
+public class ZoneServerMarkerConfiguration {
+
+  @Bean
+  public Marker zoneServerEnableMarker() {
+    return new Marker();
   }
+
+  class Marker {}
 }

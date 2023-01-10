@@ -13,16 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.zone.server.single;
+package org.doodle.idle.zone.server.config;
 
-import org.doodle.idle.zone.server.EnableZoneServer;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@EnableZoneServer
-@SpringBootApplication
-public class ZoneServerApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(ZoneServerApplication.class, args);
-  }
+@Data
+@ConfigurationProperties(prefix = ZoneServerProperties.PREFIX)
+public class ZoneServerProperties {
+  public static final String PREFIX = "doodle.idle.zone.server";
 }
