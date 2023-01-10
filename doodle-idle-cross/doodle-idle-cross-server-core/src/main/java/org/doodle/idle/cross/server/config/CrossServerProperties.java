@@ -13,16 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.cross.server.single;
+package org.doodle.idle.cross.server.config;
 
-import org.doodle.idle.cross.server.EnableCrossServer;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@EnableCrossServer
-@SpringBootApplication
-public class CrossServerApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(CrossServerApplication.class, args);
-  }
+@Data
+@ConfigurationProperties(prefix = CrossServerProperties.PREFIX)
+public class CrossServerProperties {
+  public static final String PREFIX = "doodle.idle.cross.server";
 }

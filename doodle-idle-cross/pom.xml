@@ -14,5 +14,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>doodle-idle-cross-server</module>
+    <module>doodle-idle-cross-server-core</module>
+    <module>doodle-starter-idle-cross-server</module>
   </modules>
 </project>
