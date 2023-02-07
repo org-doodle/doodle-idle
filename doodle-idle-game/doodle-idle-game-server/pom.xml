@@ -13,6 +13,7 @@
   <artifactId>doodle-idle-game-server</artifactId>
   <properties>
     <spotless.skip>false</spotless.skip>
+    <start-class>org.doodle.idle.game.server.single.GameServerApplication</start-class>
   </properties>
   <dependencies>
     <dependency>
@@ -20,4 +21,12 @@
       <artifactId>doodle-starter-idle-game-server</artifactId>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 </project>
