@@ -17,11 +17,11 @@
   <dependencies>
     <dependency>
       <groupId>org.doodle</groupId>
-      <artifactId>doodle-idle-game-server-core</artifactId>
+      <artifactId>doodle-idle-game-server-autoconfigure</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
+      <groupId>org.doodle</groupId>
+      <artifactId>doodle-starter-gsocket</artifactId>
     </dependency>
   </dependencies>
 </project>
