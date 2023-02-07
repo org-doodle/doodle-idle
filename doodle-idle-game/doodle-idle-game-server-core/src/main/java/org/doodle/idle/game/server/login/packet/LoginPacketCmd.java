@@ -13,19 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.role;
+package org.doodle.idle.game.server.login.packet;
 
 import lombok.experimental.UtilityClass;
-import org.doodle.idle.game.server.PacketGroups;
 
 @UtilityClass
-public class RolePackets {
-
-  public static final short GROUP = PacketGroups.ROLE;
-  public static final short CREATE_REQUEST = 1;
-  public static final short CREATE_RESPONSE = 2;
-
-  public static class CreateRequest {}
-
-  public static class CreateResponse {}
+public class LoginPacketCmd {
+  public static final short LOGIN_REQUEST = 1;
+  public static final short LOGIN_RESPONSE = 2;
 }

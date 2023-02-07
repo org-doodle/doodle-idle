@@ -15,52 +15,50 @@
  */
 package org.doodle.idle.game.server.config;
 
-import org.doodle.idle.game.server.bag.BagController;
-import org.doodle.idle.game.server.login.LoginController;
-import org.doodle.idle.game.server.mail.MailController;
-import org.doodle.idle.game.server.rank.RankController;
-import org.doodle.idle.game.server.role.RoleController;
-import org.doodle.idle.game.server.role.RoleRequester;
-import org.doodle.idle.game.server.task.TaskController;
+import org.doodle.idle.game.server.login.packet.DefaultLoginPacketController;
+import org.doodle.idle.game.server.mail.packet.DefaultMailPacketController;
+import org.doodle.idle.game.server.rank.packet.DefaultRankPacketController;
+import org.doodle.idle.game.server.role.packet.DefaultRolePacketController;
+import org.doodle.idle.game.server.task.packet.DefaultTaskPacketController;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 
 @AutoConfiguration
-public class GameServerControllerConfiguration {
+public class GameServerPacketAutoConfiguration {
   @Bean
   @ConditionalOnMissingBean
-  public BagController<RoleRequester> bagController() {
-    return new BagController();
+  public DefaultLoginPacketController bagPacketController() {
+    return new DefaultLoginPacketController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public LoginController<RoleRequester> loginController() {
-    return new LoginController<>();
+  public DefaultLoginPacketController loginPacketController() {
+    return new DefaultLoginPacketController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public MailController<RoleRequester> mailController() {
-    return new MailController<>();
+  public DefaultMailPacketController mailPacketController() {
+    return new DefaultMailPacketController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public RankController<RoleRequester> rankController() {
-    return new RankController<>();
+  public DefaultRankPacketController rankPacketController() {
+    return new DefaultRankPacketController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public RoleController<RoleRequester> roleController() {
-    return new RoleController<>();
+  public DefaultRolePacketController rolePacketController() {
+    return new DefaultRolePacketController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public TaskController<RoleRequester> taskController() {
-    return new TaskController();
+  public DefaultTaskPacketController taskPacketController() {
+    return new DefaultTaskPacketController();
   }
 }

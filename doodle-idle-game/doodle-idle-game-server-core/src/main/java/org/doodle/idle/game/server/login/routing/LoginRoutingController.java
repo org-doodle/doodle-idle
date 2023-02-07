@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.rank;
+package org.doodle.idle.game.server.login.routing;
 
-import lombok.experimental.UtilityClass;
+import org.doodle.idle.game.server.RoutingController;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 
-@UtilityClass
-public class RankPackets {}
+@MessageMapping
+public class LoginRoutingController implements RoutingController {}

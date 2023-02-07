@@ -13,9 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.bag;
+package org.doodle.idle.game.server.rank.packet;
 
-import lombok.experimental.UtilityClass;
+import static org.doodle.idle.game.server.PacketGroup.RANK;
 
-@UtilityClass
-public class BagPackets {}
+import org.doodle.design.messaging.PacketMapping;
+import org.doodle.design.messaging.PacketMapping.Inbound;
+import org.doodle.idle.game.server.PacketController;
+import org.doodle.idle.game.server.role.RoleRequester;
+
+@PacketMapping(inbound = @Inbound(RANK))
+public class RankPacketController<RoleRequesterT extends RoleRequester>
+    implements PacketController<RoleRequesterT> {}

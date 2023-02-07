@@ -15,4 +15,12 @@
  */
 package org.doodle.idle.game.server.role;
 
-public class RoleBase extends org.doodle.design.role.RoleBase {}
+import org.doodle.idle.game.server.login.RoleLogin;
+
+public class RoleBase extends org.doodle.design.role.RoleBase {
+  protected RoleLogin login;
+
+  public RoleLogin login() {
+    return this.login;
+  }
+}

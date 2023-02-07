@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.config;
+package org.doodle.idle.game.server.bag.packet;
 
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import lombok.experimental.UtilityClass;
 
-@AutoConfiguration
-@ConditionalOnBean(GameServerMarkerConfiguration.Marker.class)
-@EnableConfigurationProperties(GameServerProperties.class)
-public class GameServerAutoConfiguration {}
+@UtilityClass
+public class BagPacketCmd {
+  public static final short BAG_DATA_REQUEST = 1;
+  public static final short BAG_DATA_RESPONSE = 2;
+}

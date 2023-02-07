@@ -13,15 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.task;
+package org.doodle.idle.game.server.mail.routing;
 
-import static org.doodle.idle.game.server.PacketGroups.TASK;
+import org.doodle.idle.game.server.RoutingController;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 
-import org.doodle.design.messaging.PacketMapping;
-import org.doodle.design.messaging.PacketMapping.Inbound;
-import org.doodle.idle.game.server.role.RoleRequester;
-import org.springframework.stereotype.Controller;
-
-@PacketMapping(inbound = @Inbound(TASK))
-@Controller
-public class TaskController<RoleRequesterT extends RoleRequester> {}
+@MessageMapping
+public class MailRoutingController implements RoutingController {}

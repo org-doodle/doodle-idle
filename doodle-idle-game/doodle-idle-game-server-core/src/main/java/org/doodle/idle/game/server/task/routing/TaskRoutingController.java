@@ -13,13 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.config;
+package org.doodle.idle.game.server.task.routing;
 
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.doodle.idle.game.server.RoutingController;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 
-@AutoConfiguration
-@ConditionalOnBean(GameServerMarkerConfiguration.Marker.class)
-@EnableConfigurationProperties(GameServerProperties.class)
-public class GameServerAutoConfiguration {}
+@MessageMapping
+public class TaskRoutingController implements RoutingController {}

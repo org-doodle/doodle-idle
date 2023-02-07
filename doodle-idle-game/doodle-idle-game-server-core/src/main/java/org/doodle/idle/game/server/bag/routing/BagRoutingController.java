@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.mail;
+package org.doodle.idle.game.server.bag.routing;
 
-import lombok.experimental.UtilityClass;
+import org.doodle.idle.game.server.RoutingController;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 
-@UtilityClass
-public class MailPackets {}
+@MessageMapping
+public class BagRoutingController implements RoutingController {}

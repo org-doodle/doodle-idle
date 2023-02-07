@@ -13,15 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.rank;
+package org.doodle.idle.game.server.bag.packet;
 
-import static org.doodle.idle.game.server.PacketGroups.RANK;
+import lombok.Data;
 
-import org.doodle.design.messaging.PacketMapping;
-import org.doodle.design.messaging.PacketMapping.Inbound;
-import org.doodle.idle.game.server.role.RoleRequester;
-import org.springframework.stereotype.Controller;
-
-@PacketMapping(inbound = @Inbound(RANK))
-@Controller
-public class RankController<RoleRequesterT extends RoleRequester> {}
+@Data
+public class BagDataResponse {}

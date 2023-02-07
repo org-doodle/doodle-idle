@@ -13,13 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.config;
+package org.doodle.idle.game.server;
 
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.doodle.idle.game.server.role.RoleRequester;
+import org.springframework.stereotype.Controller;
 
-@AutoConfiguration
-@ConditionalOnBean(GameServerMarkerConfiguration.Marker.class)
-@EnableConfigurationProperties(GameServerProperties.class)
-public class GameServerAutoConfiguration {}
+@Controller
+public interface PacketController<RoleRequesterT extends RoleRequester> {}

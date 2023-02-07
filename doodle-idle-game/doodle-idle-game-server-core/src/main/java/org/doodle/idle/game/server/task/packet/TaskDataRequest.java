@@ -13,16 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.login;
+package org.doodle.idle.game.server.task.packet;
 
-import lombok.experimental.UtilityClass;
+import lombok.Data;
 
-@UtilityClass
-public class LoginPackets {
-  public static final short LOGIN_REQUEST = 1;
-  public static final short LOGIN_RESPONSE = 2;
-
-  public static class LoginRequest {}
-
-  public static class LoginResponse {}
-}
+@Data
+public class TaskDataRequest {}

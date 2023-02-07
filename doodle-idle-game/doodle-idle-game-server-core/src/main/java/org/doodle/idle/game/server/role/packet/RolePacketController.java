@@ -13,29 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.login;
+package org.doodle.idle.game.server.role.packet;
 
-import static org.doodle.idle.game.server.PacketGroups.LOGIN;
-import static org.doodle.idle.game.server.login.LoginPackets.LOGIN_REQUEST;
-import static org.doodle.idle.game.server.login.LoginPackets.LOGIN_RESPONSE;
+import static org.doodle.idle.game.server.PacketGroup.ROLE;
+import static org.doodle.idle.game.server.role.packet.RolePacketCmd.CREATE_REQUEST;
+import static org.doodle.idle.game.server.role.packet.RolePacketCmd.CREATE_RESPONSE;
+import static org.doodle.idle.game.server.role.packet.RolePacketCmd.GROUP;
 
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
 import org.doodle.design.messaging.PacketMapping.Outbound;
 import org.doodle.design.messaging.PacketMapping.Protocol;
-import org.doodle.design.messaging.PacketRequester;
-import org.doodle.idle.game.server.login.LoginPackets.LoginRequest;
-import org.doodle.idle.game.server.login.LoginPackets.LoginResponse;
+import org.doodle.idle.game.server.PacketController;
 import org.doodle.idle.game.server.role.RoleRequester;
 import org.springframework.stereotype.Controller;
 
-@PacketMapping(inbound = @Inbound(LOGIN))
+@PacketMapping(inbound = @Inbound(ROLE))
 @Controller
-public class LoginController<RoleRequesterT extends RoleRequester> {
+public class RolePacketController<RoleRequesterT extends RoleRequester>
+    implements PacketController<RoleRequesterT> {
 
   @PacketMapping(
-      inbound = @Inbound(value = LOGIN_REQUEST, target = LoginRequest.class),
+      inbound = @Inbound(value = CREATE_REQUEST, target = RoleCreateRequest.class),
       outbound =
-          @Outbound(targets = @Protocol(value = LOGIN_RESPONSE, target = LoginResponse.class)))
-  public void onLogin(PacketRequester requester, LoginRequest request) {}
+          @Outbound(
+              targets = @Protocol(value = CREATE_RESPONSE, target = RoleCreateResponse.class)))
+  public void onCreateRole(RoleRequesterT role, RoleCreateRequest request) {
+    role.requester()
+        .route(GROUP, CREATE_RESPONSE)
+        .data(new RoleCreateResponse())
+        .send()
+        .subscribe();
+  }
 }

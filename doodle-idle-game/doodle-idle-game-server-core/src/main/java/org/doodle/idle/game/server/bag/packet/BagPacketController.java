@@ -13,15 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.bag;
+package org.doodle.idle.game.server.bag.packet;
 
-import static org.doodle.idle.game.server.PacketGroups.BAG;
+import static org.doodle.idle.game.server.PacketGroup.BAG;
+import static org.doodle.idle.game.server.bag.packet.BagPacketCmd.BAG_DATA_REQUEST;
+import static org.doodle.idle.game.server.bag.packet.BagPacketCmd.BAG_DATA_RESPONSE;
 
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
+import org.doodle.design.messaging.PacketMapping.Outbound;
+import org.doodle.design.messaging.PacketMapping.Protocol;
+import org.doodle.idle.game.server.PacketController;
 import org.doodle.idle.game.server.role.RoleRequester;
-import org.springframework.stereotype.Controller;
 
 @PacketMapping(inbound = @Inbound(BAG))
-@Controller
-public class BagController<RoleRequesterT extends RoleRequester> {}
+public class BagPacketController<RoleRequesterT extends RoleRequester>
+    implements PacketController<RoleRequesterT> {
+
+  @PacketMapping(
+      inbound = @Inbound(BAG_DATA_REQUEST),
+      outbound =
+          @Outbound(targets = @Protocol(value = BAG_DATA_RESPONSE, target = BagDataRequest.class)))
+  public void onDataRequest(RoleRequesterT role, BagDataRequest request) {}
+}

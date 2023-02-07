@@ -13,13 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.config;
+package org.doodle.idle.game.server;
 
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import lombok.experimental.UtilityClass;
 
-@AutoConfiguration
-@ConditionalOnBean(GameServerMarkerConfiguration.Marker.class)
-@EnableConfigurationProperties(GameServerProperties.class)
-public class GameServerAutoConfiguration {}
+@UtilityClass
+public class PacketGroup {
+  public static final short LOGIN = 1;
+  public static final short ROLE = 2;
+  public static final short MAIL = 3;
+  public static final short BAG = 4;
+  public static final short TASK = 5;
+  public static final short RANK = 6;
+}

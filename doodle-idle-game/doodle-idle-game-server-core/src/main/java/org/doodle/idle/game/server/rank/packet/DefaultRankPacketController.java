@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.task;
+package org.doodle.idle.game.server.rank.packet;
 
-import lombok.experimental.UtilityClass;
+import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
-@UtilityClass
-public class TaskPackets {}
+public class DefaultRankPacketController extends RankPacketController<DefaultRoleRequester> {}
