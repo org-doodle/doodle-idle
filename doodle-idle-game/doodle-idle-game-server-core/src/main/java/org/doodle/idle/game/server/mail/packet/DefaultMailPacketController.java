@@ -17,4 +17,5 @@ package org.doodle.idle.game.server.mail.packet;
 
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
-public class DefaultMailPacketController extends MailPacketController<DefaultRoleRequester> {}
+public class DefaultMailPacketController
+    extends MailPacketController<DefaultRoleRequester, MailDataRequest> {}

@@ -17,4 +17,5 @@ package org.doodle.idle.game.server.bag.packet;
 
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
-public class DefaultBagPacketController extends BagPacketController<DefaultRoleRequester> {}
+public class DefaultBagPacketController
+    extends BagPacketController<DefaultRoleRequester, BagDataRequest> {}

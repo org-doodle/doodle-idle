@@ -15,14 +15,11 @@
  */
 package org.doodle.idle.game.server;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class PacketGroup {
-  public static final short LOGIN = 1;
-  public static final short ROLE = 2;
-  public static final short MAIL = 3;
-  public static final short BAG = 4;
-  public static final short TASK = 5;
-  public static final short RANK = 6;
+public interface PacketGroup {
+  short LOGIN = 1;
+  short ROLE = 2;
+  short MAIL = 3;
+  short BAG = 4;
+  short TASK = 5;
+  short RANK = 6;
 }

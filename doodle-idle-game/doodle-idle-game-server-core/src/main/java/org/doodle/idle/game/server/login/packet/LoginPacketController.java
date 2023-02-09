@@ -17,23 +17,18 @@ package org.doodle.idle.game.server.login.packet;
 
 import static org.doodle.idle.game.server.PacketGroup.LOGIN;
 import static org.doodle.idle.game.server.login.packet.LoginPacketCmd.LOGIN_REQUEST;
-import static org.doodle.idle.game.server.login.packet.LoginPacketCmd.LOGIN_RESPONSE;
 
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
-import org.doodle.design.messaging.PacketMapping.Outbound;
-import org.doodle.design.messaging.PacketMapping.Protocol;
 import org.doodle.design.messaging.PacketRequester;
 import org.doodle.idle.game.server.PacketController;
 import org.doodle.idle.game.server.role.RoleRequester;
 
 @PacketMapping(inbound = @Inbound(LOGIN))
-public abstract class LoginPacketController<RoleRequesterT extends RoleRequester>
+public abstract class LoginPacketController<
+        RoleRequesterT extends RoleRequester, LoginRequestT extends LoginRequest>
     implements PacketController<RoleRequesterT> {
 
-  @PacketMapping(
-      inbound = @Inbound(value = LOGIN_REQUEST, target = LoginRequest.class),
-      outbound =
-          @Outbound(targets = @Protocol(value = LOGIN_RESPONSE, target = LoginResponse.class)))
-  public void onLogin(PacketRequester requester, LoginRequest request) {}
+  @PacketMapping(inbound = @Inbound(LOGIN_REQUEST))
+  public void onLogin(PacketRequester requester, LoginRequestT request) {}
 }

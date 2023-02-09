@@ -15,10 +15,7 @@
  */
 package org.doodle.idle.game.server.login.packet;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class LoginPacketCmd {
-  public static final short LOGIN_REQUEST = 1;
-  public static final short LOGIN_RESPONSE = 2;
+public interface LoginPacketCmd {
+  short LOGIN_REQUEST = 1;
+  short LOGIN_RESPONSE = 2;
 }

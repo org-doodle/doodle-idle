@@ -15,12 +15,7 @@
  */
 package org.doodle.idle.game.server.role.packet;
 
-import lombok.experimental.UtilityClass;
-import org.doodle.idle.game.server.PacketGroup;
-
-@UtilityClass
-public class RolePacketCmd {
-  public static final short GROUP = PacketGroup.ROLE;
-  public static final short CREATE_REQUEST = 1;
-  public static final short CREATE_RESPONSE = 2;
+public interface RolePacketCmd {
+  short CREATE_REQUEST = 1;
+  short CREATE_RESPONSE = 2;
 }

@@ -17,4 +17,5 @@ package org.doodle.idle.game.server.login.packet;
 
 import org.doodle.idle.game.server.role.RoleRequester;
 
-public class DefaultLoginPacketController extends LoginPacketController<RoleRequester> {}
+public class DefaultLoginPacketController
+    extends LoginPacketController<RoleRequester, LoginRequest> {}

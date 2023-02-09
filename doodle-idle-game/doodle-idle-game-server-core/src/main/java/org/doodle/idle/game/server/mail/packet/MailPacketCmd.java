@@ -15,10 +15,7 @@
  */
 package org.doodle.idle.game.server.mail.packet;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class MailPacketCmd {
-  public static final short DATA_REQUEST = 1;
-  public static final short DATA_RESPONSE = 2;
+public interface MailPacketCmd {
+  short DATA_REQUEST = 1;
+  short DATA_RESPONSE = 2;
 }

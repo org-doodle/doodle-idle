@@ -15,7 +15,4 @@
  */
 package org.doodle.idle.game.server.rank.packet;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class RankPacketCmd {}
+public interface RankPacketCmd {}

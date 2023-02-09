@@ -15,10 +15,7 @@
  */
 package org.doodle.idle.game.server.task.packet;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class TaskPacketCmd {
-  public static final short DATA_REQUEST = 1;
-  public static final short DATA_RESPONSE = 2;
+public interface TaskPacketCmd {
+  short DATA_REQUEST = 1;
+  short DATA_RESPONSE = 2;
 }

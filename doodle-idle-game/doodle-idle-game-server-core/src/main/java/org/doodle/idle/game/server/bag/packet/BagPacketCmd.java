@@ -15,10 +15,7 @@
  */
 package org.doodle.idle.game.server.bag.packet;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class BagPacketCmd {
-  public static final short BAG_DATA_REQUEST = 1;
-  public static final short BAG_DATA_RESPONSE = 2;
+public interface BagPacketCmd {
+  short BAG_DATA_REQUEST = 1;
+  short BAG_DATA_RESPONSE = 2;
 }

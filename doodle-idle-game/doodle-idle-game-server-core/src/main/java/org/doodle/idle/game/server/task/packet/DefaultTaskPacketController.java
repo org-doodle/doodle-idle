@@ -17,4 +17,5 @@ package org.doodle.idle.game.server.task.packet;
 
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
-public class DefaultTaskPacketController extends TaskPacketController<DefaultRoleRequester> {}
+public class DefaultTaskPacketController
+    extends TaskPacketController<DefaultRoleRequester, TaskDataRequest> {}

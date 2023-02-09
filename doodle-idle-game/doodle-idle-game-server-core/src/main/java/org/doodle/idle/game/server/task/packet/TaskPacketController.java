@@ -17,22 +17,17 @@ package org.doodle.idle.game.server.task.packet;
 
 import static org.doodle.idle.game.server.PacketGroup.TASK;
 import static org.doodle.idle.game.server.task.packet.TaskPacketCmd.DATA_REQUEST;
-import static org.doodle.idle.game.server.task.packet.TaskPacketCmd.DATA_RESPONSE;
 
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
-import org.doodle.design.messaging.PacketMapping.Outbound;
-import org.doodle.design.messaging.PacketMapping.Protocol;
 import org.doodle.idle.game.server.PacketController;
 import org.doodle.idle.game.server.role.RoleRequester;
 
 @PacketMapping(inbound = @Inbound(TASK))
-public class TaskPacketController<RoleRequesterT extends RoleRequester>
+public class TaskPacketController<
+        RoleRequesterT extends RoleRequester, TaskDataRequestT extends TaskDataRequest>
     implements PacketController<RoleRequesterT> {
 
-  @PacketMapping(
-      inbound = @Inbound(DATA_REQUEST),
-      outbound =
-          @Outbound(targets = @Protocol(value = DATA_RESPONSE, target = TaskDataResponse.class)))
-  public void onDataRequest(RoleRequesterT role, TaskDataRequest request) {}
+  @PacketMapping(inbound = @Inbound(DATA_REQUEST))
+  public void onDataRequest(RoleRequesterT role, TaskDataRequestT request) {}
 }
