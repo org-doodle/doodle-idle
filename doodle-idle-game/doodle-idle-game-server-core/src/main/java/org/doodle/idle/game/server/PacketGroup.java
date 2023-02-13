@@ -18,8 +18,9 @@ package org.doodle.idle.game.server;
 public interface PacketGroup {
   short LOGIN = 1;
   short ROLE = 2;
-  short MAIL = 3;
-  short BAG = 4;
-  short TASK = 5;
-  short RANK = 6;
+  short PAYMENT = 3;
+  short MAIL = 4;
+  short BAG = 5;
+  short TASK = 6;
+  short RANK = 7;
 }

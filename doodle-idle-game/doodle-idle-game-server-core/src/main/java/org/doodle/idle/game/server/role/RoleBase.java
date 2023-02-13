@@ -15,12 +15,22 @@
  */
 package org.doodle.idle.game.server.role;
 
+import lombok.Data;
 import org.doodle.idle.game.server.login.RoleLogin;
+import org.doodle.idle.game.server.pay.RolePayment;
 
-public class RoleBase extends org.doodle.design.role.RoleBase {
+@Data
+public class RoleBase extends org.doodle.design.role.RoleBase<RoleLogin, RolePayment> {
   protected RoleLogin login;
+  protected RolePayment payment;
 
+  @Override
   public RoleLogin login() {
     return this.login;
+  }
+
+  @Override
+  public RolePayment payment() {
+    return this.payment;
   }
 }

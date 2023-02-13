@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.login;
+package org.doodle.idle.game.server.pay.routing;
 
-import lombok.Data;
+import org.doodle.idle.game.server.RoutingController;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 
-@Data
-public class RoleLogin extends org.doodle.design.role.RoleLogin {}
+@MessageMapping
+public interface PaymentRoutingController extends RoutingController {}
