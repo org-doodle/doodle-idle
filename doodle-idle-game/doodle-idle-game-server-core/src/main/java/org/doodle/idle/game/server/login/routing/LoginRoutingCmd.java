@@ -15,10 +15,4 @@
  */
 package org.doodle.idle.game.server.login.routing;
 
-import static org.doodle.idle.game.server.RoutingGroup.LOGIN;
-
-import org.doodle.idle.game.server.RoutingController;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-
-@MessageMapping(LOGIN)
-public abstract class LoginRoutingController implements RoutingController {}
+public interface LoginRoutingCmd {}

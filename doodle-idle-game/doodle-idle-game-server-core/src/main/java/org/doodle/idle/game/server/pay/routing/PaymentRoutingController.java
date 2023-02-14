@@ -15,8 +15,10 @@
  */
 package org.doodle.idle.game.server.pay.routing;
 
+import static org.doodle.idle.game.server.RoutingGroup.PAYMENT;
+
 import org.doodle.idle.game.server.RoutingController;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 
-@MessageMapping
-public interface PaymentRoutingController extends RoutingController {}
+@MessageMapping(PAYMENT)
+public abstract class PaymentRoutingController implements RoutingController {}

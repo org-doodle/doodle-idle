@@ -15,8 +15,10 @@
  */
 package org.doodle.idle.game.server.mail.routing;
 
+import static org.doodle.idle.game.server.RoutingGroup.MAIL;
+
 import org.doodle.idle.game.server.RoutingController;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 
-@MessageMapping
-public class MailRoutingController implements RoutingController {}
+@MessageMapping(MAIL)
+public abstract class MailRoutingController implements RoutingController {}

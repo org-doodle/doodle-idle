@@ -15,12 +15,13 @@
  */
 package org.doodle.idle.game.server.config;
 
-import org.doodle.idle.game.server.bag.routing.BagRoutingController;
-import org.doodle.idle.game.server.login.routing.LoginRoutingController;
-import org.doodle.idle.game.server.mail.routing.MailRoutingController;
-import org.doodle.idle.game.server.rank.routing.RankRoutingController;
-import org.doodle.idle.game.server.role.routing.RoleRoutingController;
-import org.doodle.idle.game.server.task.routing.TaskRoutingController;
+import org.doodle.idle.game.server.bag.routing.DefaultBagRoutingController;
+import org.doodle.idle.game.server.login.routing.DefaultLoginRoutingController;
+import org.doodle.idle.game.server.mail.routing.DefaultMailRoutingController;
+import org.doodle.idle.game.server.pay.routing.DefaultPaymentRoutingController;
+import org.doodle.idle.game.server.rank.routing.DefaultRankRoutingController;
+import org.doodle.idle.game.server.role.routing.DefaultRoleRoutingController;
+import org.doodle.idle.game.server.task.routing.DefaultTaskRoutingController;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -30,37 +31,43 @@ public class GameServerRoutingAutoConfiguration {
 
   @Bean
   @ConditionalOnMissingBean
-  public BagRoutingController bagRoutingController() {
-    return new BagRoutingController();
+  public DefaultBagRoutingController bagRoutingController() {
+    return new DefaultBagRoutingController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public LoginRoutingController loginRoutingController() {
-    return new LoginRoutingController();
+  public DefaultLoginRoutingController loginRoutingController() {
+    return new DefaultLoginRoutingController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public MailRoutingController mailRoutingController() {
-    return new MailRoutingController();
+  public DefaultMailRoutingController mailRoutingController() {
+    return new DefaultMailRoutingController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public RankRoutingController rankRoutingController() {
-    return new RankRoutingController();
+  public DefaultPaymentRoutingController paymentRoutingController() {
+    return new DefaultPaymentRoutingController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public RoleRoutingController roleRoutingController() {
-    return new RoleRoutingController();
+  public DefaultRankRoutingController rankRoutingController() {
+    return new DefaultRankRoutingController();
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public TaskRoutingController taskRoutingController() {
-    return new TaskRoutingController();
+  public DefaultRoleRoutingController roleRoutingController() {
+    return new DefaultRoleRoutingController();
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public DefaultTaskRoutingController taskRoutingController() {
+    return new DefaultTaskRoutingController();
   }
 }

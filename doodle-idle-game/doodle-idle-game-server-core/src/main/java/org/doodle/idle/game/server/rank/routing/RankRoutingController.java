@@ -15,8 +15,10 @@
  */
 package org.doodle.idle.game.server.rank.routing;
 
+import static org.doodle.idle.game.server.RoutingGroup.RANK;
+
 import org.doodle.idle.game.server.RoutingController;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 
-@MessageMapping
-public class RankRoutingController implements RoutingController {}
+@MessageMapping(RANK)
+public abstract class RankRoutingController implements RoutingController {}
