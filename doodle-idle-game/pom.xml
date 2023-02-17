@@ -14,7 +14,6 @@
   <packaging>pom</packaging>
   <modules>
     <module>doodle-idle-game-server</module>
-    <module>doodle-idle-game-server-autoconfigure</module>
     <module>doodle-idle-game-server-core</module>
     <module>doodle-starter-idle-game-server</module>
   </modules>

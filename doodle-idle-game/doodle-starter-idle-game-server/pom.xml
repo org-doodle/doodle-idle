@@ -17,7 +17,7 @@
   <dependencies>
     <dependency>
       <groupId>org.doodle</groupId>
-      <artifactId>doodle-idle-game-server-autoconfigure</artifactId>
+      <artifactId>doodle-idle-game-server-core</artifactId>
     </dependency>
     <dependency>
       <groupId>org.doodle</groupId>
