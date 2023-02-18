@@ -21,12 +21,27 @@ import static org.doodle.idle.game.server.mail.packet.MailPacketCmd.DATA_REQUEST
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
 import org.doodle.idle.game.server.PacketController;
+import org.doodle.idle.game.server.bag.RoleBag;
+import org.doodle.idle.game.server.login.RoleLogin;
+import org.doodle.idle.game.server.mail.RoleMail;
+import org.doodle.idle.game.server.payment.RolePayment;
+import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
+import org.doodle.idle.game.server.task.RoleTask;
 
 @PacketMapping(inbound = @Inbound(MAIL))
 public class MailPacketController<
-        RoleRequesterT extends RoleRequester, MailDataRequestT extends MailDataRequest>
-    implements PacketController<RoleRequesterT> {
+        RoleBagT extends RoleBag,
+        RoleMailT extends RoleMail,
+        RoleTaskT extends RoleTask,
+        RoleLoginT extends RoleLogin,
+        RolePaymentT extends RolePayment,
+        RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
+        RoleRequesterT extends
+            RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>,
+        MailDataRequestT extends MailDataRequest>
+    implements PacketController<
+        RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {
 
   @PacketMapping(inbound = @Inbound(DATA_REQUEST))
   public void onDataRequest(RoleRequesterT role, MailDataRequestT request) {}

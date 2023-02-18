@@ -15,4 +15,7 @@
  */
 package org.doodle.idle.game.server.bag;
 
-public class RoleBag {}
+import lombok.Data;
+
+@Data
+public class RoleBag extends org.doodle.design.bag.RoleBag {}

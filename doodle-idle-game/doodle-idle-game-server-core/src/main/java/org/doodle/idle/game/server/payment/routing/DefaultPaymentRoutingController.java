@@ -13,12 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.pay.routing;
+package org.doodle.idle.game.server.payment.routing;
 
-import static org.doodle.idle.game.server.RoutingGroup.PAYMENT;
-
-import org.doodle.idle.game.server.RoutingController;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-
-@MessageMapping(PAYMENT)
-public abstract class PaymentRoutingController implements RoutingController {}
+public class DefaultPaymentRoutingController extends PaymentRoutingController {}

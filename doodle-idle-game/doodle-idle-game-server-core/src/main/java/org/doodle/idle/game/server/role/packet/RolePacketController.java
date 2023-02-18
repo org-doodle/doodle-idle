@@ -22,14 +22,29 @@ import static org.doodle.idle.game.server.role.packet.RolePacketCmd.CREATE_RESPO
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
 import org.doodle.idle.game.server.PacketController;
+import org.doodle.idle.game.server.bag.RoleBag;
+import org.doodle.idle.game.server.login.RoleLogin;
+import org.doodle.idle.game.server.mail.RoleMail;
+import org.doodle.idle.game.server.payment.RolePayment;
+import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
+import org.doodle.idle.game.server.task.RoleTask;
 import org.springframework.stereotype.Controller;
 
 @PacketMapping(inbound = @Inbound(ROLE))
 @Controller
 public class RolePacketController<
-        RoleRequesterT extends RoleRequester, RoleCreateRequestT extends RoleCreateRequest>
-    implements PacketController<RoleRequesterT> {
+        RoleBagT extends RoleBag,
+        RoleMailT extends RoleMail,
+        RoleTaskT extends RoleTask,
+        RoleLoginT extends RoleLogin,
+        RolePaymentT extends RolePayment,
+        RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
+        RoleRequesterT extends
+            RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>,
+        RoleCreateRequestT extends RoleCreateRequest>
+    implements PacketController<
+        RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {
 
   @PacketMapping(inbound = @Inbound(CREATE_REQUEST))
   public void onCreateRoleRequest(RoleRequesterT role, RoleCreateRequestT request) {

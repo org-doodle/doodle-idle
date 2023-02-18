@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.pay.routing;
+package org.doodle.idle.game.server.task;
 
-public interface PaymentRoutingCmd {}
+import lombok.Data;
+
+@Data
+public class DefaultRoleTask extends RoleTask {}

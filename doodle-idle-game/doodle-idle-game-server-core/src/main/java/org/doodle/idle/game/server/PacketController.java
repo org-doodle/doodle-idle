@@ -15,8 +15,22 @@
  */
 package org.doodle.idle.game.server;
 
+import org.doodle.idle.game.server.bag.RoleBag;
+import org.doodle.idle.game.server.login.RoleLogin;
+import org.doodle.idle.game.server.mail.RoleMail;
+import org.doodle.idle.game.server.payment.RolePayment;
+import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
+import org.doodle.idle.game.server.task.RoleTask;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public interface PacketController<RoleRequesterT extends RoleRequester> {}
+public interface PacketController<
+    RoleBagT extends RoleBag,
+    RoleMailT extends RoleMail,
+    RoleTaskT extends RoleTask,
+    RoleLoginT extends RoleLogin,
+    RolePaymentT extends RolePayment,
+    RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
+    RoleRequesterT extends
+        RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>> {}

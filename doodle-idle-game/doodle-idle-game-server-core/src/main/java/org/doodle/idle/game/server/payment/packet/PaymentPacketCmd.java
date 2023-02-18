@@ -13,9 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.pay;
+package org.doodle.idle.game.server.payment.packet;
 
-import lombok.Data;
-
-@Data
-public class RolePayment extends org.doodle.design.role.RolePayment {}
+public interface PaymentPacketCmd {}

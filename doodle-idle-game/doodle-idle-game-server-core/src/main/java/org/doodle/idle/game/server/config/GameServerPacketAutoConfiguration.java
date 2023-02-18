@@ -17,7 +17,7 @@ package org.doodle.idle.game.server.config;
 
 import org.doodle.idle.game.server.login.packet.DefaultLoginPacketController;
 import org.doodle.idle.game.server.mail.packet.DefaultMailPacketController;
-import org.doodle.idle.game.server.pay.packet.DefaultPaymentPacketController;
+import org.doodle.idle.game.server.payment.packet.DefaultPaymentPacketController;
 import org.doodle.idle.game.server.rank.packet.DefaultRankPacketController;
 import org.doodle.idle.game.server.role.packet.DefaultRolePacketController;
 import org.doodle.idle.game.server.task.packet.DefaultTaskPacketController;

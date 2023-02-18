@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.task.packet;
+package org.doodle.idle.game.server.payment.packet;
 
 import org.doodle.idle.game.server.bag.DefaultRoleBag;
 import org.doodle.idle.game.server.login.DefaultRoleLogin;
@@ -23,13 +23,12 @@ import org.doodle.idle.game.server.role.DefaultRoleBase;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 import org.doodle.idle.game.server.task.DefaultRoleTask;
 
-public class DefaultTaskPacketController
-    extends TaskPacketController<
+public class DefaultPaymentPacketController
+    extends PaymentPacketController<
         DefaultRoleBag,
         DefaultRoleMail,
         DefaultRoleTask,
         DefaultRoleLogin,
         DefaultRolePayment,
         DefaultRoleBase,
-        DefaultRoleRequester,
-        TaskDataRequest> {}
+        DefaultRoleRequester> {}

@@ -27,6 +27,10 @@
     </dependency>
     <dependency>
       <groupId>org.doodle</groupId>
+      <artifactId>doodle-design-bag</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.doodle</groupId>
       <artifactId>doodle-design-mail</artifactId>
     </dependency>
     <dependency>

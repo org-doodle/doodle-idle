@@ -18,7 +18,7 @@ package org.doodle.idle.game.server.config;
 import org.doodle.idle.game.server.bag.routing.DefaultBagRoutingController;
 import org.doodle.idle.game.server.login.routing.DefaultLoginRoutingController;
 import org.doodle.idle.game.server.mail.routing.DefaultMailRoutingController;
-import org.doodle.idle.game.server.pay.routing.DefaultPaymentRoutingController;
+import org.doodle.idle.game.server.payment.routing.DefaultPaymentRoutingController;
 import org.doodle.idle.game.server.rank.routing.DefaultRankRoutingController;
 import org.doodle.idle.game.server.role.routing.DefaultRoleRoutingController;
 import org.doodle.idle.game.server.task.routing.DefaultTaskRoutingController;

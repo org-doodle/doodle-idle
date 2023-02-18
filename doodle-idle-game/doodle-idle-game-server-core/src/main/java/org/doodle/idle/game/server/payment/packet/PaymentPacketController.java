@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.bag.packet;
+package org.doodle.idle.game.server.payment.packet;
 
-import static org.doodle.idle.game.server.PacketGroup.BAG;
-import static org.doodle.idle.game.server.bag.packet.BagPacketCmd.BAG_DATA_REQUEST;
+import static org.doodle.idle.game.server.PacketGroup.PAYMENT;
 
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
@@ -29,8 +28,8 @@ import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
-@PacketMapping(inbound = @Inbound(BAG))
-public class BagPacketController<
+@PacketMapping(inbound = @Inbound(PAYMENT))
+public class PaymentPacketController<
         RoleBagT extends RoleBag,
         RoleMailT extends RoleMail,
         RoleTaskT extends RoleTask,
@@ -38,11 +37,6 @@ public class BagPacketController<
         RolePaymentT extends RolePayment,
         RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
         RoleRequesterT extends
-            RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>,
-        BagDataRequestT extends BagDataRequest>
+            RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>>
     implements PacketController<
-        RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {
-
-  @PacketMapping(inbound = @Inbound(BAG_DATA_REQUEST))
-  public void onDataRequest(RoleRequesterT role, BagDataRequestT request) {}
-}
+        RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {}

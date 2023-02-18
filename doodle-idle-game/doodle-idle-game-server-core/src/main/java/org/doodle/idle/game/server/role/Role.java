@@ -16,15 +16,26 @@
 package org.doodle.idle.game.server.role;
 
 import org.doodle.idle.game.server.bag.RoleBag;
+import org.doodle.idle.game.server.login.RoleLogin;
 import org.doodle.idle.game.server.mail.RoleMail;
+import org.doodle.idle.game.server.payment.RolePayment;
 import org.doodle.idle.game.server.task.RoleTask;
 
-public interface Role {
-  RoleBag bag();
+public interface Role<
+        RoleBagT extends RoleBag,
+        RoleMailT extends RoleMail,
+        RoleTaskT extends RoleTask,
+        RoleLoginT extends RoleLogin,
+        RolePaymentT extends RolePayment,
+        RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>>
+    extends org.doodle.design.role.Role<RoleBaseT> {
 
-  RoleMail mail();
+  RoleBagT bag();
 
-  RoleBase base();
+  RoleMailT mail();
 
-  RoleTask task();
+  @Override
+  RoleBaseT base();
+
+  RoleTaskT task();
 }

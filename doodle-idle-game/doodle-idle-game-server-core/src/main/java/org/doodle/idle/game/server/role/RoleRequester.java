@@ -16,10 +16,23 @@
 package org.doodle.idle.game.server.role;
 
 import org.doodle.boot.gsocket.messaging.GSocketRequester;
+import org.doodle.idle.game.server.bag.RoleBag;
+import org.doodle.idle.game.server.login.RoleLogin;
+import org.doodle.idle.game.server.mail.RoleMail;
+import org.doodle.idle.game.server.payment.RolePayment;
+import org.doodle.idle.game.server.task.RoleTask;
 import org.springframework.cache.CacheManager;
 
-public abstract class RoleRequester
-    extends org.doodle.design.role.RoleRequester<GSocketRequester, RoleBase> implements Role {
+public abstract class RoleRequester<
+        RoleBagT extends RoleBag,
+        RoleMailT extends RoleMail,
+        RoleTaskT extends RoleTask,
+        RoleLoginT extends RoleLogin,
+        RolePaymentT extends RolePayment,
+        RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>>
+    extends org.doodle.design.role.RoleRequester<
+        GSocketRequester, RoleLoginT, RolePaymentT, RoleBaseT>
+    implements Role<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT> {
   protected final CacheManager cacheManager;
 
   public RoleRequester(GSocketRequester requester, CacheManager cacheManager) {

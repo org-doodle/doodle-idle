@@ -15,7 +15,21 @@
  */
 package org.doodle.idle.game.server.login.packet;
 
-import org.doodle.idle.game.server.role.RoleRequester;
+import org.doodle.idle.game.server.bag.DefaultRoleBag;
+import org.doodle.idle.game.server.login.DefaultRoleLogin;
+import org.doodle.idle.game.server.mail.DefaultRoleMail;
+import org.doodle.idle.game.server.payment.DefaultRolePayment;
+import org.doodle.idle.game.server.role.DefaultRoleBase;
+import org.doodle.idle.game.server.role.DefaultRoleRequester;
+import org.doodle.idle.game.server.task.DefaultRoleTask;
 
 public class DefaultLoginPacketController
-    extends LoginPacketController<RoleRequester, LoginRequest> {}
+    extends LoginPacketController<
+        DefaultRoleBag,
+        DefaultRoleMail,
+        DefaultRoleTask,
+        DefaultRoleLogin,
+        DefaultRolePayment,
+        DefaultRoleBase,
+        DefaultRoleRequester,
+        LoginRequest> {}

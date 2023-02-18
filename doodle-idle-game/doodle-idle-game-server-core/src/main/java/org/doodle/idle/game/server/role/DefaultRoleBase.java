@@ -13,6 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.doodle.idle.game.server.pay.routing;
+package org.doodle.idle.game.server.role;
 
-public class DefaultPaymentRoutingController extends PaymentRoutingController {}
+import lombok.Data;
+import org.doodle.idle.game.server.login.DefaultRoleLogin;
+import org.doodle.idle.game.server.payment.DefaultRolePayment;
+
+@Data
+public class DefaultRoleBase extends RoleBase<DefaultRoleLogin, DefaultRolePayment> {}
