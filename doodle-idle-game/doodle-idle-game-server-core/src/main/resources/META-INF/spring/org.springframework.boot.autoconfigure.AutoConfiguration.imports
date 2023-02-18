@@ -1,3 +1,4 @@
 org.doodle.idle.game.server.config.GameServerAutoConfiguration
+org.doodle.idle.game.server.config.GameServerExcelAutoConfiguration
 org.doodle.idle.game.server.config.GameServerPacketAutoConfiguration
 org.doodle.idle.game.server.config.GameServerRoutingAutoConfiguration

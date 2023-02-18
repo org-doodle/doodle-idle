@@ -1,5 +1,7 @@
-doodle.boot:
-  gsocket:
-    server:
-      transport: WEBSOCKET
-      port: 8001
+doodle:
+  boot:
+    gsocket:
+      server:
+        transport: WEBSOCKET
+        port: 8001
+

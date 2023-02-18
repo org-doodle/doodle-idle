@@ -12,4 +12,7 @@
   </parent>
   <artifactId>doodle-idle-independent</artifactId>
   <packaging>pom</packaging>
+  <modules>
+    <module>doodle-idle-excel</module>
+  </modules>
 </project>

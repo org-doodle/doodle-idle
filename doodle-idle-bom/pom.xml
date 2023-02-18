@@ -61,6 +61,11 @@
       </dependency>
       <dependency>
         <groupId>org.doodle</groupId>
+        <artifactId>doodle-idle-excel</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.doodle</groupId>
         <artifactId>doodle-idle-zone-server-core</artifactId>
         <version>${project.version}</version>
       </dependency>
