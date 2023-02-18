@@ -15,10 +15,4 @@
  */
 package org.doodle.idle.game.server.role.routing;
 
-import static org.doodle.idle.game.server.RoutingGroup.ROLE;
-
-import org.doodle.idle.game.server.RoutingController;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-
-@MessageMapping(ROLE)
-public abstract class RoleRoutingController implements RoutingController {}
+public abstract class RoleRoutingController extends org.doodle.design.role.RoleRoutingController {}

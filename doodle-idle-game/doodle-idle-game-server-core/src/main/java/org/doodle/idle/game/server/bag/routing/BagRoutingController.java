@@ -15,10 +15,4 @@
  */
 package org.doodle.idle.game.server.bag.routing;
 
-import static org.doodle.idle.game.server.RoutingGroup.BAG;
-
-import org.doodle.idle.game.server.RoutingController;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-
-@MessageMapping(BAG)
-public abstract class BagRoutingController implements RoutingController {}
+public abstract class BagRoutingController extends org.doodle.design.bag.BagRoutingController {}

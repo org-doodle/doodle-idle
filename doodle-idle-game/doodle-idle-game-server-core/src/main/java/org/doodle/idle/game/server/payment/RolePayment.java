@@ -18,4 +18,4 @@ package org.doodle.idle.game.server.payment;
 import lombok.Data;
 
 @Data
-public class RolePayment extends org.doodle.design.role.RolePayment {}
+public class RolePayment extends org.doodle.design.role.payment.RolePayment {}

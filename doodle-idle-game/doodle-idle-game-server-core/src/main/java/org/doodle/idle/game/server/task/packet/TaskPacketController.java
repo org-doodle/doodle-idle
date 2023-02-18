@@ -15,9 +15,9 @@
  */
 package org.doodle.idle.game.server.task.packet;
 
-import static org.doodle.idle.game.server.PacketGroup.TASK;
 import static org.doodle.idle.game.server.task.packet.TaskPacketCmd.DATA_REQUEST;
 
+import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
 import org.doodle.idle.game.server.PacketController;
@@ -29,7 +29,6 @@ import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
-@PacketMapping(inbound = @Inbound(TASK))
 public class TaskPacketController<
         RoleBagT extends RoleBag,
         RoleMailT extends RoleMail,
@@ -40,6 +39,7 @@ public class TaskPacketController<
         RoleRequesterT extends
             RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>,
         TaskDataRequestT extends TaskDataRequest>
+    extends org.doodle.design.task.TaskPacketController<RoleTaskT, GSocketRequester>
     implements PacketController<
         RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {
 

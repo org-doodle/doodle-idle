@@ -15,10 +15,7 @@
  */
 package org.doodle.idle.game.server.rank.packet;
 
-import static org.doodle.idle.game.server.PacketGroup.RANK;
-
-import org.doodle.design.messaging.PacketMapping;
-import org.doodle.design.messaging.PacketMapping.Inbound;
+import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.idle.game.server.PacketController;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
@@ -28,7 +25,6 @@ import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
-@PacketMapping(inbound = @Inbound(RANK))
 public class RankPacketController<
         RoleBagT extends RoleBag,
         RoleMailT extends RoleMail,
@@ -38,5 +34,6 @@ public class RankPacketController<
         RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
         RoleRequesterT extends
             RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>>
+    extends org.doodle.design.rank.RankPacketController<GSocketRequester>
     implements PacketController<
         RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {}

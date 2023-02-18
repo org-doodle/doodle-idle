@@ -15,10 +15,7 @@
  */
 package org.doodle.idle.game.server.payment.packet;
 
-import static org.doodle.idle.game.server.PacketGroup.PAYMENT;
-
-import org.doodle.design.messaging.PacketMapping;
-import org.doodle.design.messaging.PacketMapping.Inbound;
+import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.idle.game.server.PacketController;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
@@ -28,7 +25,6 @@ import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
-@PacketMapping(inbound = @Inbound(PAYMENT))
 public class PaymentPacketController<
         RoleBagT extends RoleBag,
         RoleMailT extends RoleMail,
@@ -38,5 +34,6 @@ public class PaymentPacketController<
         RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
         RoleRequesterT extends
             RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>>
+    extends org.doodle.design.role.payment.PaymentPacketController<RolePaymentT, GSocketRequester>
     implements PacketController<
         RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {}

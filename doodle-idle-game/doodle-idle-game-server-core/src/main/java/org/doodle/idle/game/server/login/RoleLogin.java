@@ -18,4 +18,4 @@ package org.doodle.idle.game.server.login;
 import lombok.Data;
 
 @Data
-public class RoleLogin extends org.doodle.design.role.RoleLogin {}
+public class RoleLogin extends org.doodle.design.role.login.RoleLogin {}

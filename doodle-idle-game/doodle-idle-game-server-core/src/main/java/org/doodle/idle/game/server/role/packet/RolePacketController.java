@@ -15,10 +15,9 @@
  */
 package org.doodle.idle.game.server.role.packet;
 
-import static org.doodle.idle.game.server.PacketGroup.ROLE;
 import static org.doodle.idle.game.server.role.packet.RolePacketCmd.CREATE_REQUEST;
-import static org.doodle.idle.game.server.role.packet.RolePacketCmd.CREATE_RESPONSE;
 
+import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
 import org.doodle.idle.game.server.PacketController;
@@ -29,10 +28,7 @@ import org.doodle.idle.game.server.payment.RolePayment;
 import org.doodle.idle.game.server.role.RoleBase;
 import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
-import org.springframework.stereotype.Controller;
 
-@PacketMapping(inbound = @Inbound(ROLE))
-@Controller
 public class RolePacketController<
         RoleBagT extends RoleBag,
         RoleMailT extends RoleMail,
@@ -43,11 +39,11 @@ public class RolePacketController<
         RoleRequesterT extends
             RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>,
         RoleCreateRequestT extends RoleCreateRequest>
+    extends org.doodle.design.role.RolePacketController<
+        RoleLoginT, RolePaymentT, RoleBaseT, GSocketRequester, RoleRequesterT>
     implements PacketController<
         RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT, RoleRequesterT> {
 
   @PacketMapping(inbound = @Inbound(CREATE_REQUEST))
-  public void onCreateRoleRequest(RoleRequesterT role, RoleCreateRequestT request) {
-    role.requester().route(ROLE, CREATE_RESPONSE).data(new RoleCreateResponse()).send().subscribe();
-  }
+  public void onCreateRoleRequest(RoleRequesterT role, RoleCreateRequestT request) {}
 }

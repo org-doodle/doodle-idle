@@ -15,10 +15,4 @@
  */
 package org.doodle.idle.game.server.task.routing;
 
-import static org.doodle.idle.game.server.RoutingGroup.TASK;
-
-import org.doodle.idle.game.server.RoutingController;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-
-@MessageMapping(TASK)
-public abstract class TaskRoutingController implements RoutingController {}
+public abstract class TaskRoutingController extends org.doodle.design.task.TaskRoutingController {}
