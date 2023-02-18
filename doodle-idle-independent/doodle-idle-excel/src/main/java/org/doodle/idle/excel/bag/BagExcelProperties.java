@@ -18,6 +18,4 @@ package org.doodle.idle.excel.bag;
 import lombok.Data;
 
 @Data
-public abstract class BagExcelProperties extends org.doodle.design.bag.BagExcelProperties {
-  private int a;
-}
+public abstract class BagExcelProperties extends org.doodle.design.bag.BagExcelProperties {}
