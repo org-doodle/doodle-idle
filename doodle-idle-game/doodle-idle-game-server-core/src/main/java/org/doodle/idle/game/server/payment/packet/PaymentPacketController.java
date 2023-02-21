@@ -25,13 +25,14 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public class PaymentPacketController<
-        RoleBagT extends RoleBag,
-        RoleMailT extends RoleMail,
-        RoleTaskT extends RoleTask,
-        RoleLoginT extends RoleLogin,
         RolePaymentT extends RolePayment,
-        RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
         RoleRequesterT extends
-            RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>>
+            RoleRequester<
+                    ? extends RoleBag,
+                    ? extends RoleMail,
+                    ? extends RoleTask,
+                    ? extends RoleLogin,
+                    RolePaymentT,
+                    ? extends RoleBase<? extends RoleLogin, RolePaymentT>>>
     extends org.doodle.design.role.payment.PaymentPacketController<
         RolePaymentT, GSocketRequester> {}

@@ -15,20 +15,8 @@
  */
 package org.doodle.idle.game.server.payment.packet;
 
-import org.doodle.idle.game.server.bag.DefaultRoleBag;
-import org.doodle.idle.game.server.login.DefaultRoleLogin;
-import org.doodle.idle.game.server.mail.DefaultRoleMail;
 import org.doodle.idle.game.server.payment.DefaultRolePayment;
-import org.doodle.idle.game.server.role.DefaultRoleBase;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
-import org.doodle.idle.game.server.task.DefaultRoleTask;
 
 public class DefaultPaymentPacketController
-    extends PaymentPacketController<
-        DefaultRoleBag,
-        DefaultRoleMail,
-        DefaultRoleTask,
-        DefaultRoleLogin,
-        DefaultRolePayment,
-        DefaultRoleBase,
-        DefaultRoleRequester> {}
+    extends PaymentPacketController<DefaultRolePayment, DefaultRoleRequester> {}

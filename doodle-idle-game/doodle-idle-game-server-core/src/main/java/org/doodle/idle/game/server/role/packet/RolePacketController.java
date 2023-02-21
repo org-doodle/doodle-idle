@@ -29,17 +29,16 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public class RolePacketController<
-        RoleBagT extends RoleBag,
-        RoleMailT extends RoleMail,
-        RoleTaskT extends RoleTask,
-        RoleLoginT extends RoleLogin,
-        RolePaymentT extends RolePayment,
-        RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
         RoleRequesterT extends
-            RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>,
+            RoleRequester<
+                    ? extends RoleBag,
+                    ? extends RoleMail,
+                    ? extends RoleTask,
+                    ? extends RoleLogin,
+                    ? extends RolePayment,
+                    ? extends RoleBase<? extends RoleLogin, ? extends RolePayment>>,
         RoleCreateRequestT extends RoleCreateRequest>
-    extends org.doodle.design.role.RolePacketController<
-        RoleLoginT, RolePaymentT, RoleBaseT, GSocketRequester, RoleRequesterT> {
+    extends org.doodle.design.role.RolePacketController<GSocketRequester, RoleRequesterT> {
 
   @PacketMapping(inbound = @Inbound(CREATE_REQUEST))
   public void onCreateRoleRequest(RoleRequesterT role, RoleCreateRequestT request) {}

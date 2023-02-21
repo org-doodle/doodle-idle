@@ -15,6 +15,7 @@
  */
 package org.doodle.idle.game.server.config;
 
+import org.doodle.idle.game.server.bag.packet.DefaultBagPacketController;
 import org.doodle.idle.game.server.login.packet.DefaultLoginPacketController;
 import org.doodle.idle.game.server.mail.packet.DefaultMailPacketController;
 import org.doodle.idle.game.server.payment.packet.DefaultPaymentPacketController;
@@ -29,8 +30,8 @@ import org.springframework.context.annotation.Bean;
 public class GameServerPacketAutoConfiguration {
   @Bean
   @ConditionalOnMissingBean
-  public DefaultLoginPacketController bagPacketController() {
-    return new DefaultLoginPacketController();
+  public DefaultBagPacketController bagPacketController() {
+    return new DefaultBagPacketController();
   }
 
   @Bean

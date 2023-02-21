@@ -30,13 +30,14 @@ import org.doodle.idle.game.server.task.RoleTask;
 
 public class BagPacketController<
         RoleBagT extends RoleBag,
-        RoleMailT extends RoleMail,
-        RoleTaskT extends RoleTask,
-        RoleLoginT extends RoleLogin,
-        RolePaymentT extends RolePayment,
-        RoleBaseT extends RoleBase<RoleLoginT, RolePaymentT>,
         RoleRequesterT extends
-            RoleRequester<RoleBagT, RoleMailT, RoleTaskT, RoleLoginT, RolePaymentT, RoleBaseT>,
+            RoleRequester<
+                    RoleBagT,
+                    ? extends RoleMail,
+                    ? extends RoleTask,
+                    ? extends RoleLogin,
+                    ? extends RolePayment,
+                    ? extends RoleBase<? extends RoleLogin, ? extends RolePayment>>,
         BagDataRequestT extends BagDataRequest>
     extends org.doodle.design.bag.BagPacketController<RoleBagT, GSocketRequester> {
 
