@@ -21,6 +21,7 @@ import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
 import org.doodle.design.messaging.PacketRequester;
+import org.doodle.idle.excel.login.LoginExcelProperties;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
 import org.doodle.idle.game.server.mail.RoleMail;
@@ -30,6 +31,7 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public abstract class LoginPacketController<
+        LoginExcelPropertiesT extends LoginExcelProperties,
         RoleLoginT extends RoleLogin,
         RoleRequesterT extends
             RoleRequester<
@@ -40,7 +42,12 @@ public abstract class LoginPacketController<
                     ? extends RolePayment,
                     ? extends RoleBase<? extends RoleLogin, ? extends RolePayment>>,
         LoginRequestT extends LoginRequest>
-    extends org.doodle.design.role.login.LoginPacketController<RoleLoginT, GSocketRequester> {
+    extends org.doodle.design.role.login.LoginPacketController<
+        LoginExcelPropertiesT, RoleLoginT, GSocketRequester> {
+
+  public LoginPacketController(LoginExcelPropertiesT excel) {
+    super(excel);
+  }
 
   @PacketMapping(inbound = @Inbound(LOGIN_REQUEST))
   public void onLogin(PacketRequester requester, LoginRequestT request) {}

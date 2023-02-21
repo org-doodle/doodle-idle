@@ -15,8 +15,15 @@
  */
 package org.doodle.idle.game.server.payment.packet;
 
+import org.doodle.idle.excel.payment.DefaultPaymentExcelProperties;
 import org.doodle.idle.game.server.payment.DefaultRolePayment;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
 public class DefaultPaymentPacketController
-    extends PaymentPacketController<DefaultRolePayment, DefaultRoleRequester> {}
+    extends PaymentPacketController<
+        DefaultPaymentExcelProperties, DefaultRolePayment, DefaultRoleRequester> {
+
+  public DefaultPaymentPacketController(DefaultPaymentExcelProperties excel) {
+    super(excel);
+  }
+}

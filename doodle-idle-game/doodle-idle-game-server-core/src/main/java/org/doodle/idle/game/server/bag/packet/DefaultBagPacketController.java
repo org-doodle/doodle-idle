@@ -15,8 +15,15 @@
  */
 package org.doodle.idle.game.server.bag.packet;
 
+import org.doodle.idle.excel.bag.DefaultBagExcelProperties;
 import org.doodle.idle.game.server.bag.DefaultRoleBag;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
 public class DefaultBagPacketController
-    extends BagPacketController<DefaultRoleBag, DefaultRoleRequester, BagDataRequest> {}
+    extends BagPacketController<
+        DefaultBagExcelProperties, DefaultRoleBag, DefaultRoleRequester, BagDataRequest> {
+
+  public DefaultBagPacketController(DefaultBagExcelProperties excel) {
+    super(excel);
+  }
+}

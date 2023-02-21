@@ -16,6 +16,7 @@
 package org.doodle.idle.game.server.payment.packet;
 
 import org.doodle.boot.gsocket.messaging.GSocketRequester;
+import org.doodle.idle.excel.payment.PaymentExcelProperties;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
 import org.doodle.idle.game.server.mail.RoleMail;
@@ -25,6 +26,7 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public class PaymentPacketController<
+        PaymentExcelPropertiesT extends PaymentExcelProperties,
         RolePaymentT extends RolePayment,
         RoleRequesterT extends
             RoleRequester<
@@ -35,4 +37,9 @@ public class PaymentPacketController<
                     RolePaymentT,
                     ? extends RoleBase<? extends RoleLogin, RolePaymentT>>>
     extends org.doodle.design.role.payment.PaymentPacketController<
-        RolePaymentT, GSocketRequester> {}
+        PaymentExcelPropertiesT, RolePaymentT, GSocketRequester> {
+
+  public PaymentPacketController(PaymentExcelPropertiesT excel) {
+    super(excel);
+  }
+}

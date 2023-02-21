@@ -15,6 +15,13 @@
  */
 package org.doodle.idle.game.server.config;
 
+import org.doodle.idle.excel.bag.DefaultBagExcelProperties;
+import org.doodle.idle.excel.login.DefaultLoginExcelProperties;
+import org.doodle.idle.excel.mail.DefaultMailExcelProperties;
+import org.doodle.idle.excel.payment.DefaultPaymentExcelProperties;
+import org.doodle.idle.excel.rank.DefaultRankExcelProperties;
+import org.doodle.idle.excel.role.DefaultRoleExcelProperties;
+import org.doodle.idle.excel.task.DefaultTaskExcelProperties;
 import org.doodle.idle.game.server.bag.packet.DefaultBagPacketController;
 import org.doodle.idle.game.server.login.packet.DefaultLoginPacketController;
 import org.doodle.idle.game.server.mail.packet.DefaultMailPacketController;
@@ -26,47 +33,55 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 
-@AutoConfiguration
+@SuppressWarnings("unused")
+@AutoConfiguration(after = GameServerExcelAutoConfiguration.class)
 public class GameServerPacketAutoConfiguration {
   @Bean
   @ConditionalOnMissingBean
-  public DefaultBagPacketController bagPacketController() {
-    return new DefaultBagPacketController();
+  public DefaultBagPacketController bagPacketController(
+      DefaultBagExcelProperties bagExcelProperties) {
+    return new DefaultBagPacketController(bagExcelProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public DefaultLoginPacketController loginPacketController() {
-    return new DefaultLoginPacketController();
+  public DefaultLoginPacketController loginPacketController(
+      DefaultLoginExcelProperties loginExcelProperties) {
+    return new DefaultLoginPacketController(loginExcelProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public DefaultMailPacketController mailPacketController() {
-    return new DefaultMailPacketController();
+  public DefaultMailPacketController mailPacketController(
+      DefaultMailExcelProperties mailExcelProperties) {
+    return new DefaultMailPacketController(mailExcelProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public DefaultPaymentPacketController paymentPacketController() {
-    return new DefaultPaymentPacketController();
+  public DefaultPaymentPacketController paymentPacketController(
+      DefaultPaymentExcelProperties paymentExcelProperties) {
+    return new DefaultPaymentPacketController(paymentExcelProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public DefaultRankPacketController rankPacketController() {
-    return new DefaultRankPacketController();
+  public DefaultRankPacketController rankPacketController(
+      DefaultRankExcelProperties rankExcelProperties) {
+    return new DefaultRankPacketController(rankExcelProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public DefaultRolePacketController rolePacketController() {
-    return new DefaultRolePacketController();
+  public DefaultRolePacketController rolePacketController(
+      DefaultRoleExcelProperties roleExcelProperties) {
+    return new DefaultRolePacketController(roleExcelProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public DefaultTaskPacketController taskPacketController() {
-    return new DefaultTaskPacketController();
+  public DefaultTaskPacketController taskPacketController(
+      DefaultTaskExcelProperties taskExcelProperties) {
+    return new DefaultTaskPacketController(taskExcelProperties);
   }
 }

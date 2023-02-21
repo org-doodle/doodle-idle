@@ -20,6 +20,7 @@ import static org.doodle.idle.game.server.role.packet.RolePacketCmd.CREATE_REQUE
 import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
+import org.doodle.idle.excel.role.RoleExcelProperties;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
 import org.doodle.idle.game.server.mail.RoleMail;
@@ -29,6 +30,7 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public class RolePacketController<
+        RoleExcelPropertiesT extends RoleExcelProperties,
         RoleRequesterT extends
             RoleRequester<
                     ? extends RoleBag,
@@ -38,7 +40,12 @@ public class RolePacketController<
                     ? extends RolePayment,
                     ? extends RoleBase<? extends RoleLogin, ? extends RolePayment>>,
         RoleCreateRequestT extends RoleCreateRequest>
-    extends org.doodle.design.role.RolePacketController<GSocketRequester, RoleRequesterT> {
+    extends org.doodle.design.role.RolePacketController<
+        RoleExcelPropertiesT, GSocketRequester, RoleRequesterT> {
+
+  public RolePacketController(RoleExcelPropertiesT excel) {
+    super(excel);
+  }
 
   @PacketMapping(inbound = @Inbound(CREATE_REQUEST))
   public void onCreateRoleRequest(RoleRequesterT role, RoleCreateRequestT request) {}

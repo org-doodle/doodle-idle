@@ -15,6 +15,13 @@
  */
 package org.doodle.idle.game.server.rank.packet;
 
+import org.doodle.idle.excel.rank.DefaultRankExcelProperties;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
-public class DefaultRankPacketController extends RankPacketController<DefaultRoleRequester> {}
+public class DefaultRankPacketController
+    extends RankPacketController<DefaultRankExcelProperties, DefaultRoleRequester> {
+
+  public DefaultRankPacketController(DefaultRankExcelProperties excel) {
+    super(excel);
+  }
+}

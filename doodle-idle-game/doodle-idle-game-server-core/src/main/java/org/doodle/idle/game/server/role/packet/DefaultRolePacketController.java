@@ -15,7 +15,14 @@
  */
 package org.doodle.idle.game.server.role.packet;
 
+import org.doodle.idle.excel.role.DefaultRoleExcelProperties;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
 public class DefaultRolePacketController
-    extends RolePacketController<DefaultRoleRequester, RoleCreateRequest> {}
+    extends RolePacketController<
+        DefaultRoleExcelProperties, DefaultRoleRequester, RoleCreateRequest> {
+
+  public DefaultRolePacketController(DefaultRoleExcelProperties excel) {
+    super(excel);
+  }
+}

@@ -20,6 +20,7 @@ import static org.doodle.idle.game.server.mail.packet.MailPacketCmd.DATA_REQUEST
 import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
+import org.doodle.idle.excel.mail.MailExcelProperties;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
 import org.doodle.idle.game.server.mail.RoleMail;
@@ -29,6 +30,7 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public class MailPacketController<
+        MailExcelPropertiesT extends MailExcelProperties,
         RoleMailT extends RoleMail,
         RoleRequesterT extends
             RoleRequester<
@@ -39,7 +41,12 @@ public class MailPacketController<
                     ? extends RolePayment,
                     ? extends RoleBase<? extends RoleLogin, ? extends RolePayment>>,
         MailDataRequestT extends MailDataRequest>
-    extends org.doodle.design.mail.MailPacketController<RoleMailT, GSocketRequester> {
+    extends org.doodle.design.mail.MailPacketController<
+        MailExcelPropertiesT, RoleMailT, GSocketRequester> {
+
+  public MailPacketController(MailExcelPropertiesT excel) {
+    super(excel);
+  }
 
   @PacketMapping(inbound = @Inbound(DATA_REQUEST))
   public void onDataRequest(RoleRequesterT role, MailDataRequestT request) {}

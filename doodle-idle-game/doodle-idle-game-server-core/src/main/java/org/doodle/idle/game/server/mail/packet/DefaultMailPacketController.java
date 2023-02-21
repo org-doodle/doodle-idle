@@ -15,8 +15,15 @@
  */
 package org.doodle.idle.game.server.mail.packet;
 
+import org.doodle.idle.excel.mail.DefaultMailExcelProperties;
 import org.doodle.idle.game.server.mail.DefaultRoleMail;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
 public class DefaultMailPacketController
-    extends MailPacketController<DefaultRoleMail, DefaultRoleRequester, MailDataRequest> {}
+    extends MailPacketController<
+        DefaultMailExcelProperties, DefaultRoleMail, DefaultRoleRequester, MailDataRequest> {
+
+  public DefaultMailPacketController(DefaultMailExcelProperties excel) {
+    super(excel);
+  }
+}

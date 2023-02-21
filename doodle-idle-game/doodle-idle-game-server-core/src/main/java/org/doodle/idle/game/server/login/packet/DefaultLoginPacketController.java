@@ -15,8 +15,15 @@
  */
 package org.doodle.idle.game.server.login.packet;
 
+import org.doodle.idle.excel.login.DefaultLoginExcelProperties;
 import org.doodle.idle.game.server.login.DefaultRoleLogin;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 
 public class DefaultLoginPacketController
-    extends LoginPacketController<DefaultRoleLogin, DefaultRoleRequester, LoginRequest> {}
+    extends LoginPacketController<
+        DefaultLoginExcelProperties, DefaultRoleLogin, DefaultRoleRequester, LoginRequest> {
+
+  public DefaultLoginPacketController(DefaultLoginExcelProperties excel) {
+    super(excel);
+  }
+}

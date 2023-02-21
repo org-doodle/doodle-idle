@@ -20,6 +20,7 @@ import static org.doodle.idle.game.server.bag.packet.BagPacketCmd.BAG_DATA_REQUE
 import org.doodle.boot.gsocket.messaging.GSocketRequester;
 import org.doodle.design.messaging.PacketMapping;
 import org.doodle.design.messaging.PacketMapping.Inbound;
+import org.doodle.idle.excel.bag.BagExcelProperties;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
 import org.doodle.idle.game.server.mail.RoleMail;
@@ -29,6 +30,7 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public class BagPacketController<
+        BagExcelPropertiesT extends BagExcelProperties,
         RoleBagT extends RoleBag,
         RoleRequesterT extends
             RoleRequester<
@@ -39,7 +41,12 @@ public class BagPacketController<
                     ? extends RolePayment,
                     ? extends RoleBase<? extends RoleLogin, ? extends RolePayment>>,
         BagDataRequestT extends BagDataRequest>
-    extends org.doodle.design.bag.BagPacketController<RoleBagT, GSocketRequester> {
+    extends org.doodle.design.bag.BagPacketController<
+        BagExcelPropertiesT, RoleBagT, GSocketRequester> {
+
+  public BagPacketController(BagExcelPropertiesT excel) {
+    super(excel);
+  }
 
   @PacketMapping(inbound = @Inbound(BAG_DATA_REQUEST))
   public void onDataRequest(RoleRequesterT role, BagDataRequestT request) {}

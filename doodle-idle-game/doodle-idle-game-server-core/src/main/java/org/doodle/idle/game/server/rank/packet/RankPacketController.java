@@ -16,6 +16,7 @@
 package org.doodle.idle.game.server.rank.packet;
 
 import org.doodle.boot.gsocket.messaging.GSocketRequester;
+import org.doodle.idle.excel.rank.RankExcelProperties;
 import org.doodle.idle.game.server.bag.RoleBag;
 import org.doodle.idle.game.server.login.RoleLogin;
 import org.doodle.idle.game.server.mail.RoleMail;
@@ -25,6 +26,7 @@ import org.doodle.idle.game.server.role.RoleRequester;
 import org.doodle.idle.game.server.task.RoleTask;
 
 public class RankPacketController<
+        RankExcelPropertiesT extends RankExcelProperties,
         RoleRequesterT extends
             RoleRequester<
                     ? extends RoleBag,
@@ -33,4 +35,9 @@ public class RankPacketController<
                     ? extends RoleLogin,
                     ? extends RolePayment,
                     ? extends RoleBase<? extends RoleLogin, ? extends RolePayment>>>
-    extends org.doodle.design.rank.RankPacketController<GSocketRequester> {}
+    extends org.doodle.design.rank.RankPacketController<RankExcelPropertiesT, GSocketRequester> {
+
+  public RankPacketController(RankExcelPropertiesT excel) {
+    super(excel);
+  }
+}

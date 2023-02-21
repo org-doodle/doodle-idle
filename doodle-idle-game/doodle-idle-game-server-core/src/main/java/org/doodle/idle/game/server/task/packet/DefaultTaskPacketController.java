@@ -15,8 +15,15 @@
  */
 package org.doodle.idle.game.server.task.packet;
 
+import org.doodle.idle.excel.task.DefaultTaskExcelProperties;
 import org.doodle.idle.game.server.role.DefaultRoleRequester;
 import org.doodle.idle.game.server.task.DefaultRoleTask;
 
 public class DefaultTaskPacketController
-    extends TaskPacketController<DefaultRoleTask, DefaultRoleRequester, TaskDataRequest> {}
+    extends TaskPacketController<
+        DefaultTaskExcelProperties, DefaultRoleTask, DefaultRoleRequester, TaskDataRequest> {
+
+  public DefaultTaskPacketController(DefaultTaskExcelProperties excel) {
+    super(excel);
+  }
+}
