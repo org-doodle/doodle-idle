@@ -66,6 +66,11 @@
       </dependency>
       <dependency>
         <groupId>org.doodle</groupId>
+        <artifactId>doodle-idle-fight</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.doodle</groupId>
         <artifactId>doodle-idle-zone-server-core</artifactId>
         <version>${project.version}</version>
       </dependency>
